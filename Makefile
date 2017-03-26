@@ -215,7 +215,7 @@ ifeq ($(ARCH),sparc64)
        SRCARCH := sparc
 endif
 
-# Additional ARCH settings for sh
+# Additional ARCH settings for sh-
 ifeq ($(ARCH),sh64)
        SRCARCH := sh
 endif
@@ -239,14 +239,11 @@ CONFIG_SHELL := $(shell if [ -x "$$BASH" ]; then echo $$BASH; \
 	  else if [ -x /bin/bash ]; then echo /bin/bash; \
 	  else echo sh; fi ; fi)
 
-#SUNRISE6 = -freschedule-modulo-scheduled-loops -fmodulo-sched -fmodulo-sched-allow-regmoves -fsingle-precision-constant -fgcse-after-reload
-#GRAPHITE = -fgraphite-identity -floop-interchange -floop-strip-mine -floop-block -floop-nest-optimize
-GRAPHITE = -pipe
 # -floop-parallelize-all -ftree-parallelize-loops=3
 
 HOSTCC       = ccache gcc
 HOSTCXX      = ccache g++
-HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89
+HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89 -freschedule-modulo-scheduled-loops -fmodulo-sched -fmodulo-sched-allow-regmoves -fsingle-precision-constant -fgcse-after-reload -fcrossjumping -fschedule-fusion -floop-nest-optimize -fsched2-use-superblocks -fgraphite -fgraphite-identity 
 HOSTCXXFLAGS = -O2 -pipe
 
 # Decide whether to build built-in, modular, or both.
