@@ -22,8 +22,8 @@ fi
 # Tuneables Here
 toolchain="aarch64-linux-gnu-6.3.1"
 prefix="aarch64-linux-gnu-"
-toolchain_path="/home/pdesire/kernel/tools/toolchain/$toolchain/bin/:$PATH"
-name_of_your_kernel="PDesireCoreKernel-1.0"
+toolchain_path="/home/PDesire/kernel/toolchains/$toolchain/bin/:$PATH"
+name_of_your_kernel="PDesireCoreKernel-2.0"
 defconfig="msm8994-perf_defconfig"
 cpu_jobs="`grep -c ^processor /proc/cpuinfo`"
 kerneltype="Image.gz-dtb"
@@ -201,8 +201,6 @@ echo "##################################################"
 echo " "
 echo " "
 echo " "
-echo "Little CPU Cooldown (5sec)"
-sleep 5s
 
 
 while read -p "Do you want to build (y/n)? " cchoice
@@ -210,14 +208,6 @@ do
 echo
 case "$cchoice" in
 	y|Y )
-		sleep 2s
-		echo "Build Countdown:"
-		sleep 1s
-		echo "3..."
-		sleep 1s
-		echo "2..."
-		sleep 1s
-		echo "1..."
 		sleep 1s
 		echo "Start building PDesireCoreKernel..."
 		make -j$cpu_jobs |& tee log_compile.txt
