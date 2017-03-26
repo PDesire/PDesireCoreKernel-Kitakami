@@ -31,6 +31,7 @@ modules.builtin
 *.lzo
 *.patch
 *.gcno
+*.zip
 
 #
 # Top-level generic files
@@ -48,6 +49,14 @@ modules.builtin
 # Debian directory (make deb-pkg)
 #
 /debian/
+
+#
+# PDesireCoreKernel Depending directories and files
+#
+/uploads/
+/final_files/
+/log_compile.txt
+/log_defconfig.txt
 
 #
 # git files that we don't want to ignore even it they are dot-files
